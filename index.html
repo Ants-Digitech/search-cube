@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SearchCubes — Growth Marketing for Growing Businesses</title>
-  <meta name="description" content="Freelance digital marketing — SEO, paid media, and social that actually moves leads and revenue. Based in India, working with ambitious brands." />
+  <title>SearchCubes | Growth Marketing That Compounds</title>
+  <meta name="description" content="A premium homepage for SearchCubes, a performance-focused digital marketing agency built around leads, visibility, conversions, and ROI." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -29,38 +29,14 @@
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--paper);
-      color: var(--ink);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
+    body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); line-height: 1.6; overflow-x: hidden; }
     a { color: inherit; text-decoration: none; }
 
-    /* NAV */
-    .site-header {
-      position: sticky; top: 0; z-index: 50;
-      background: rgba(250,247,242,0.94);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
-    }
-    .nav {
-      max-width: 1100px; margin: 0 auto; padding: 0 24px;
-      height: 68px; display: flex; align-items: center;
-      justify-content: space-between; gap: 20px;
-    }
-    .brand {
-      display: flex; align-items: center; gap: 10px;
-      font-family: 'Fraunces', serif; font-weight: 700;
-      font-size: 1.25rem; color: var(--ink); letter-spacing: -0.02em;
-    }
-    .brand-mark {
-      width: 32px; height: 32px;
-      display: grid; grid-template-columns: repeat(2,1fr); gap: 3px;
-    }
+    /* ── NAV ── */
+    .site-header { position: sticky; top: 0; z-index: 50; background: rgba(250,247,242,0.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    .nav { max-width: 1100px; margin: 0 auto; padding: 0 24px; height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.25rem; color: var(--ink); letter-spacing: -0.02em; }
+    .brand-mark { width: 32px; height: 32px; display: grid; grid-template-columns: repeat(2,1fr); gap: 3px; }
     .brand-mark span { border-radius: 5px; }
     .brand-mark span:nth-child(1) { background: var(--amber); }
     .brand-mark span:nth-child(2) { background: var(--sage); }
@@ -69,12 +45,7 @@
     .nav-links { display: none; gap: 28px; list-style: none; }
     .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--muted); transition: color 200ms; }
     .nav-links a:hover { color: var(--ink); }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 10px 22px; border-radius: 999px;
-      font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.9rem;
-      cursor: pointer; border: none; transition: transform 150ms, box-shadow 150ms;
-    }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 22px; border-radius: 999px; font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.9rem; cursor: pointer; border: none; transition: transform 150ms, box-shadow 150ms; }
     .btn:hover { transform: translateY(-1px); }
     .btn-primary { background: var(--ink); color: var(--warm-white); box-shadow: 0 4px 16px rgba(26,18,8,0.22); }
     .btn-primary:hover { box-shadow: 0 8px 24px rgba(26,18,8,0.28); }
@@ -83,374 +54,237 @@
     .btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
     .btn-ghost:hover { background: var(--cream); }
 
-    /* HERO */
-    .hero {
-      background: var(--warm-white);
-      padding: 72px 24px 80px;
-      position: relative; overflow: hidden;
+    /* ── HERO ── */
+    .hero { background: var(--ink); padding: 0; position: relative; overflow: hidden; min-height: calc(100svh - 68px); display: flex; flex-direction: column; }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(rgba(26,18,8,0.70), rgba(26,18,8,0.85)),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 88px);
+      z-index: 0;
     }
-    .hero::before {
-      content: ''; position: absolute; top: -120px; right: -120px;
-      width: 520px; height: 520px;
-      background: radial-gradient(circle, rgba(245,158,11,0.12) 0%, transparent 70%);
-      pointer-events: none;
+    /* Hero image fills background */
+    .hero-img-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: #2a1e0f; /* fallback colour matching warm ink */
     }
-    .hero::after {
-      content: ''; position: absolute; bottom: -60px; left: -60px;
-      width: 320px; height: 320px;
-      background: radial-gradient(circle, rgba(74,124,89,0.09) 0%, transparent 70%);
-      pointer-events: none;
+    .hero-img-bg img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center;
+      display: block; opacity: 0.45;
     }
     .hero-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: grid; gap: 48px; align-items: center; position: relative; z-index: 1;
+      position: relative; z-index: 1;
+      max-width: 1100px; margin: 0 auto; padding: 72px 24px 80px;
+      display: grid; gap: 48px; align-items: center; flex: 1;
     }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--amber-light); border: 1px solid rgba(217,119,6,0.25);
-      border-radius: 999px; padding: 6px 14px;
-      font-size: 0.82rem; font-weight: 600; color: #92400e; margin-bottom: 24px;
-    }
-    .badge-dot {
-      width: 7px; height: 7px; border-radius: 50%; background: var(--amber);
-      animation: blink 2s ease-in-out infinite;
-    }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,252,247,0.1); border: 1px solid rgba(255,252,247,0.2); border-radius: 999px; padding: 6px 14px; font-size: 0.82rem; font-weight: 600; color: rgba(255,252,247,0.85); margin-bottom: 24px; }
+    .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--amber-mid); animation: blink 2.2s ease-in-out infinite; }
     @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
-    .hero h1 {
-      font-family: 'Fraunces', serif; font-weight: 700;
-      font-size: clamp(2.6rem, 6vw, 5rem);
-      line-height: 1.05; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 24px;
-    }
-    .hero h1 em { font-style: italic; color: var(--amber); }
-    .hero-sub {
-      font-size: clamp(1rem,1.8vw,1.15rem); color: var(--ink-soft);
-      max-width: 560px; margin-bottom: 36px; line-height: 1.7;
-    }
+    .hero h1 { font-family: 'Fraunces', serif; font-weight: 700; font-size: clamp(2.6rem, 6vw, 5.2rem); line-height: 1.02; letter-spacing: -0.03em; color: var(--warm-white); margin-bottom: 24px; }
+    .hero-sub { font-size: clamp(1rem,1.8vw,1.15rem); color: rgba(255,252,247,0.72); max-width: 560px; margin-bottom: 36px; line-height: 1.7; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 48px; }
     .hero-proof { display: flex; flex-wrap: wrap; gap: 24px; }
     .proof-item { display: flex; flex-direction: column; gap: 2px; }
-    .proof-num {
-      font-family: 'Fraunces', serif; font-size: 1.6rem;
-      font-weight: 700; color: var(--ink); line-height: 1;
-    }
-    .proof-label { font-size: 0.8rem; color: var(--muted); font-weight: 500; }
-    .proof-divider { width: 1px; background: var(--line); align-self: stretch; }
+    .proof-num { font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 700; color: var(--amber-mid); line-height: 1; }
+    .proof-label { font-size: 0.8rem; color: rgba(255,252,247,0.55); font-weight: 500; }
+    .proof-divider { width: 1px; background: rgba(255,252,247,0.15); align-self: stretch; }
 
     /* Hero panel */
-    .hero-panel {
-      background: var(--cream); border-radius: 20px; padding: 32px;
-      border: 1px solid var(--line); box-shadow: var(--shadow-warm);
-    }
-    .panel-label {
-      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--muted); margin-bottom: 20px;
-    }
+    .hero-panel { background: rgba(255,252,247,0.08); border: 1px solid rgba(255,252,247,0.14); border-radius: 20px; padding: 28px; backdrop-filter: blur(10px); }
+    .panel-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,252,247,0.48); margin-bottom: 20px; }
     .metric-row { display: flex; flex-direction: column; gap: 14px; }
     .metric-item { display: flex; flex-direction: column; gap: 6px; }
     .metric-header { display: flex; justify-content: space-between; align-items: center; }
-    .metric-name { font-size: 0.88rem; font-weight: 500; color: var(--ink-soft); }
-    .metric-val { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 700; color: var(--sage); }
-    .metric-bar-bg {
-      height: 8px; background: rgba(26,18,8,0.1);
-      border-radius: 999px; overflow: hidden;
-    }
-    .metric-bar-fill {
-      height: 100%; border-radius: 999px;
-      background: linear-gradient(90deg, var(--sage), var(--amber));
-      transform-origin: left; animation: growBar 1.2s ease-out forwards;
-    }
+    .metric-name { font-size: 0.88rem; font-weight: 500; color: rgba(255,252,247,0.72); }
+    .metric-val { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 700; color: var(--amber-mid); }
+    .metric-bar-bg { height: 8px; background: rgba(255,252,247,0.12); border-radius: 999px; overflow: hidden; }
+    .metric-bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--sage), var(--amber-mid)); transform-origin: left; animation: growBar 1.2s ease-out forwards; }
     @keyframes growBar { from{transform:scaleX(0);} to{transform:scaleX(1);} }
-    .panel-note {
-      margin-top: 24px; padding: 14px 16px;
-      background: var(--warm-white); border-radius: 10px;
-      border-left: 3px solid var(--amber);
-      font-size: 0.85rem; color: var(--ink-soft); line-height: 1.5;
-    }
-    .panel-note strong { color: var(--ink); font-weight: 600; }
+    .panel-caption { margin-top: 20px; padding: 12px 14px; background: rgba(255,252,247,0.06); border-radius: 10px; border-left: 3px solid var(--amber); font-size: 0.85rem; color: rgba(255,252,247,0.7); line-height: 1.5; }
 
-    /* TRUST STRIP */
-    .trust-strip { background: var(--ink); padding: 20px 24px; }
-    .trust-scroll {
-      max-width: 1100px; margin: 0 auto;
-      display: flex; gap: 40px; flex-wrap: wrap;
-      justify-content: center; align-items: center;
-    }
-    .trust-item {
-      display: flex; align-items: center; gap: 10px;
-      font-size: 0.85rem; font-weight: 500; color: rgba(255,252,247,0.72); white-space: nowrap;
-    }
-    .trust-icon { width: 20px; height: 20px; color: var(--amber-mid); flex-shrink: 0; }
+    /* ── TRUST STRIP ── */
+    .trust-strip { background: rgba(26,18,8,0.96); padding: 20px 24px; border-top: 1px solid rgba(255,252,247,0.06); }
+    .trust-scroll { max-width: 1100px; margin: 0 auto; display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; align-items: center; }
+    .trust-item { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; font-weight: 500; color: rgba(255,252,247,0.6); white-space: nowrap; }
+    .trust-icon { width: 18px; height: 18px; color: var(--amber-mid); flex-shrink: 0; }
 
-    /* SECTIONS */
+    /* ── SHARED SECTION ── */
     .section { padding: 80px 24px; }
     .container { max-width: 1100px; margin: 0 auto; }
-    .section-label {
-      display: inline-block; font-size: 0.75rem; font-weight: 600;
-      letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); margin-bottom: 14px;
-    }
-    .section-title {
-      font-family: 'Fraunces', serif; font-size: clamp(1.8rem,4vw,3rem);
-      font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 16px;
-    }
-    .section-sub {
-      color: var(--muted); font-size: 1.05rem; max-width: 580px;
-      line-height: 1.7; margin-bottom: 48px;
-    }
+    .section-label { display: inline-block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); margin-bottom: 14px; }
+    .section-title { font-family: 'Fraunces', serif; font-size: clamp(1.8rem,4vw,3rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 16px; }
+    .section-sub { color: var(--muted); font-size: 1.05rem; max-width: 580px; line-height: 1.7; margin-bottom: 48px; }
 
-    /* ABOUT */
-    .about { background: var(--cream); }
-    .about-grid { display: grid; gap: 48px; align-items: center; }
-    .about-card {
-      background: var(--warm-white); border-radius: 20px; padding: 36px;
-      border: 1px solid var(--line); box-shadow: var(--shadow-card);
+    /* ── PROBLEM / GROWTH LEAKS ── */
+    .problem { background: var(--cream); }
+    .problem-grid { display: grid; gap: 40px; align-items: start; }
+    .leak-list { display: flex; flex-direction: column; gap: 12px; }
+    .leak-item { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: start; background: var(--warm-white); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+    .leak-dot { width: 12px; height: 12px; border-radius: 50%; margin-top: 5px; background: var(--rust); box-shadow: 0 0 0 5px rgba(194,65,12,0.12); flex-shrink: 0; }
+    .leak-item strong { display: block; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+    .leak-item span { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+    .solution-board { background: var(--ink); border-radius: 20px; padding: 28px; box-shadow: var(--shadow-warm); }
+    .board-top { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,252,247,0.12); margin-bottom: 20px; }
+    .board-top strong { color: var(--warm-white); font-size: 1rem; font-weight: 700; }
+    .board-top span { font-size: 0.82rem; color: rgba(255,252,247,0.5); font-weight: 500; }
+    .pipeline { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; margin-bottom: 20px; }
+    .pipeline-step { background: rgba(255,252,247,0.07); border: 1px solid rgba(255,252,247,0.12); border-radius: 10px; padding: 14px; }
+    .pipeline-step strong { display: block; font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 700; color: var(--amber); margin-bottom: 8px; }
+    .pipeline-step span { font-size: 0.84rem; color: rgba(255,252,247,0.72); font-weight: 500; }
+    .sol-metric { display: flex; flex-direction: column; gap: 6px; margin-top: 14px; }
+    .sol-metric-header { display: flex; justify-content: space-between; }
+    .sol-metric-label { font-size: 0.85rem; color: rgba(255,252,247,0.65); font-weight: 500; }
+    .sol-metric-val { font-family: 'Fraunces', serif; font-size: 0.95rem; font-weight: 700; color: var(--sage); }
+    .sol-bar-bg { height: 7px; background: rgba(255,252,247,0.12); border-radius: 999px; overflow: hidden; }
+    .sol-bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--sage), var(--amber-mid)); }
+
+    /* ── IMAGE CARDS (strategy, tracking, client) ── */
+    .image-cards { display: grid; gap: 16px; margin-top: 40px; }
+    .img-card { border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: var(--warm-white); box-shadow: var(--shadow-card); }
+    .img-card-visual {
+      position: relative; aspect-ratio: 16/11; overflow: hidden;
+      background: linear-gradient(135deg, var(--cream), #ddd4c4); /* warm placeholder */
     }
-    .avatar-wrap { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
-    .avatar {
-      width: 64px; height: 64px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--amber-light), var(--sage-light));
+    .img-card-visual img {
+      display: block; width: 100%; height: 100%; object-fit: cover;
+      transition: transform 400ms ease;
+    }
+    .img-card:hover .img-card-visual img { transform: scale(1.04); }
+    .img-card-visual::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 46%, rgba(26,18,8,0.72));
+    }
+    /* Styled placeholder shown when img doesn't load */
+    .img-card-visual::before {
+      content: attr(data-label);
+      position: absolute; inset: 0; z-index: 0;
       display: flex; align-items: center; justify-content: center;
-      font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 700;
-      color: var(--ink); flex-shrink: 0; border: 2px solid var(--line);
+      font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 700;
+      color: var(--muted); letter-spacing: -0.01em;
+      background: linear-gradient(135deg, var(--cream) 0%, #e8ddd0 100%);
     }
-    .avatar-info strong { display: block; font-weight: 600; font-size: 1rem; color: var(--ink); }
-    .avatar-info span { font-size: 0.85rem; color: var(--muted); }
-    .status-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: var(--sage-light); border: 1px solid rgba(74,124,89,0.25);
-      border-radius: 999px; padding: 4px 10px;
-      font-size: 0.78rem; font-weight: 600; color: #1a4f2a; margin-top: 6px;
-    }
-    .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sage); animation: blink 2s infinite; }
-    .about-body p { color: var(--ink-soft); line-height: 1.75; margin-bottom: 16px; }
-    .about-body p:last-child { margin-bottom: 0; }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
-    .tag {
-      background: var(--amber-light); border: 1px solid rgba(217,119,6,0.2);
+    .img-label {
+      position: absolute; left: 14px; bottom: 14px; z-index: 2;
       border-radius: 999px; padding: 5px 12px;
-      font-size: 0.8rem; font-weight: 600; color: #92400e;
+      color: var(--warm-white); background: rgba(26,18,8,0.68);
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
     }
+    .img-card-body { padding: 18px; }
+    .img-card-body h3 { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+    .img-card-body p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
 
-    /* SERVICES */
+    /* ── SERVICES ── */
     .services { background: var(--warm-white); }
     .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 16px; }
-    .service-card {
-      background: var(--paper); border: 1px solid var(--line);
-      border-radius: 16px; padding: 28px;
-      transition: transform 200ms, box-shadow 200ms, border-color 200ms;
-      position: relative; overflow: hidden;
-    }
-    .service-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: var(--amber); transform: scaleX(0); transform-origin: left; transition: transform 300ms;
-    }
+    .service-card { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 28px; transition: transform 200ms, box-shadow 200ms, border-color 200ms; position: relative; overflow: hidden; }
+    .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--amber); transform: scaleX(0); transform-origin: left; transition: transform 300ms; }
     .service-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-warm); border-color: rgba(217,119,6,0.3); }
     .service-card:hover::before { transform: scaleX(1); }
-    .service-icon {
-      width: 44px; height: 44px; border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 16px; font-size: 1.3rem;
-    }
-    .icon-amber { background: var(--amber-light); }
+    .service-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; font-size: 0.85rem; font-weight: 800; color: var(--ink); }
+    .icon-blue { background: #eef3ff; }
     .icon-sage { background: var(--sage-light); }
     .icon-rust { background: #fff1ee; }
-    .service-card h3 {
-      font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 700;
-      color: var(--ink); margin-bottom: 10px; letter-spacing: -0.01em;
-    }
+    .service-card h3 { font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 700; color: var(--ink); margin-bottom: 10px; letter-spacing: -0.01em; }
     .service-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; margin-bottom: 18px; }
     .service-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
-    .service-list li {
-      font-size: 0.85rem; color: var(--ink-soft); font-weight: 500;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .check {
-      width: 16px; height: 16px; background: var(--sage); border-radius: 50%;
-      display: inline-flex; align-items: center; justify-content: center;
-      flex-shrink: 0; color: white; font-size: 0.65rem;
-    }
+    .service-list li { font-size: 0.85rem; color: var(--ink-soft); font-weight: 500; display: flex; align-items: center; gap: 8px; }
+    .check { width: 16px; height: 16px; background: var(--sage); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; color: white; font-size: 0.65rem; }
 
-    /* PROCESS */
-    .process { background: var(--cream); }
-    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 0; position: relative; }
-    .steps::before {
-      content: ''; position: absolute; top: 28px; left: 10%; right: 10%;
-      height: 1px; background: var(--line);
-    }
+    /* ── WHY ── */
+    .why { background: var(--cream); }
+    .why-grid { display: grid; gap: 40px; align-items: start; }
+    .why-panel { border-left: 4px solid var(--sage); padding: 4px 0 4px 22px; margin-bottom: 28px; }
+    .why-panel h3 { font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+    .why-panel p { color: var(--muted); font-size: 0.95rem; line-height: 1.65; }
+    .why-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .why-list li { display: flex; gap: 10px; font-size: 0.95rem; color: var(--ink-soft); font-weight: 500; }
+
+    /* ── PROCESS ── */
+    .process { background: var(--warm-white); }
+    .steps { display: grid; gap: 0; position: relative; }
+    .steps::before { content: ''; position: absolute; top: 28px; left: 10%; right: 10%; height: 1px; background: var(--line); }
     .step { padding: 0 16px 0 0; position: relative; z-index: 1; }
-    .step-num {
-      width: 56px; height: 56px; border-radius: 50%;
-      background: var(--warm-white); border: 2px solid var(--amber);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 700;
-      color: var(--amber); margin-bottom: 20px;
-    }
+    .step-num { width: 56px; height: 56px; border-radius: 50%; background: var(--warm-white); border: 2px solid var(--amber); display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 700; color: var(--amber); margin-bottom: 20px; }
     .step h3 { font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
     .step p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
 
-    /* WHY */
-    .why { background: var(--warm-white); }
-    .why-grid { display: grid; gap: 40px; align-items: start; }
-    .why-list { list-style: none; display: flex; flex-direction: column; gap: 20px; }
-    .why-item { display: flex; gap: 16px; align-items: flex-start; }
-    .why-icon {
-      width: 40px; height: 40px; border-radius: 10px;
-      background: var(--amber-light); display: flex; align-items: center;
-      justify-content: center; flex-shrink: 0; font-size: 1.1rem;
-    }
-    .why-item h4 { font-weight: 600; color: var(--ink); margin-bottom: 4px; }
-    .why-item p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
-    .honesty-card {
-      background: var(--ink); color: var(--warm-white);
-      border-radius: 20px; padding: 36px; position: relative; overflow: hidden;
-    }
-    .honesty-card::before {
-      content: '"'; position: absolute; top: -20px; right: 24px;
-      font-family: 'Fraunces', serif; font-size: 12rem;
-      color: rgba(245,158,11,0.12); line-height: 1; pointer-events: none;
-    }
-    .honesty-card p {
-      font-family: 'Fraunces', serif; font-style: italic; font-size: 1.25rem;
-      line-height: 1.55; color: rgba(255,252,247,0.9); margin-bottom: 24px; position: relative;
-    }
-    .honesty-author { display: flex; align-items: center; gap: 12px; }
-    .honesty-avatar {
-      width: 40px; height: 40px; border-radius: 50%; background: var(--amber);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Fraunces', serif; font-weight: 700; font-size: 1rem; color: #451a03;
-    }
-    .honesty-author span { font-size: 0.85rem; color: rgba(255,252,247,0.6); }
-
-    /* FAQ */
+    /* ── FAQ ── */
     .faq { background: var(--cream); }
     .faq-list { max-width: 720px; display: flex; flex-direction: column; gap: 10px; }
-    details {
-      background: var(--warm-white); border: 1px solid var(--line);
-      border-radius: 12px; overflow: hidden;
-    }
-    summary {
-      list-style: none; display: flex; justify-content: space-between;
-      align-items: center; gap: 16px; padding: 20px 22px;
-      font-weight: 600; color: var(--ink); cursor: pointer; font-size: 0.96rem;
-    }
+    details { background: var(--warm-white); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+    summary { list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 22px; font-weight: 600; color: var(--ink); cursor: pointer; font-size: 0.96rem; }
     summary::-webkit-details-marker { display: none; }
-    .faq-arrow {
-      width: 28px; height: 28px; border-radius: 50%; background: var(--cream);
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-      font-size: 1rem; color: var(--muted); transition: transform 200ms, background 200ms;
-    }
+    .faq-arrow { width: 28px; height: 28px; border-radius: 50%; background: var(--cream); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1rem; color: var(--muted); transition: transform 200ms, background 200ms; }
     details[open] .faq-arrow { transform: rotate(45deg); background: var(--amber-light); color: var(--amber); }
     details p { padding: 0 22px 20px; color: var(--muted); font-size: 0.92rem; line-height: 1.7; }
 
-    /* CTA */
+    /* ── CTA ── */
     .cta-section { background: var(--ink); padding: 80px 24px; position: relative; overflow: hidden; }
-    .cta-section::before {
-      content: ''; position: absolute; top: -100px; right: -100px;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(245,158,11,0.14) 0%, transparent 70%);
-      pointer-events: none;
-    }
+    .cta-section::before { content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(245,158,11,0.14) 0%, transparent 70%); pointer-events: none; }
     .cta-grid { max-width: 1100px; margin: 0 auto; display: grid; gap: 48px; align-items: start; position: relative; z-index: 1; }
     .cta-section .section-label { color: var(--amber-mid); }
     .cta-section .section-title { color: var(--warm-white); }
     .cta-section .section-sub { color: rgba(255,252,247,0.65); margin-bottom: 32px; }
     .cta-perks { display: flex; flex-direction: column; gap: 14px; }
     .perk { display: flex; align-items: center; gap: 12px; font-size: 0.9rem; color: rgba(255,252,247,0.8); font-weight: 500; }
-    .perk-check {
-      width: 20px; height: 20px; border-radius: 50%;
-      background: rgba(245,158,11,0.2); border: 1px solid rgba(245,158,11,0.4);
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-      color: var(--amber-mid); font-size: 0.7rem;
-    }
-
-    /* CONTACT FORM */
-    .contact-form {
-      background: rgba(255,252,247,0.06); border: 1px solid rgba(255,252,247,0.12);
-      border-radius: 20px; padding: 32px;
-    }
+    .perk-check { width: 20px; height: 20px; border-radius: 50%; background: rgba(245,158,11,0.2); border: 1px solid rgba(245,158,11,0.4); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--amber-mid); font-size: 0.7rem; }
+    .contact-form { background: rgba(255,252,247,0.06); border: 1px solid rgba(255,252,247,0.12); border-radius: 20px; padding: 32px; }
     .form-title { font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 700; color: var(--warm-white); margin-bottom: 24px; }
     .form-grid { display: grid; gap: 14px; }
     .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .form-group { display: flex; flex-direction: column; gap: 6px; }
-    .form-group label {
-      font-size: 0.8rem; font-weight: 600; color: rgba(255,252,247,0.55);
-      letter-spacing: 0.04em; text-transform: uppercase;
-    }
-    .form-group input, .form-group select, .form-group textarea {
-      background: rgba(255,252,247,0.08); border: 1px solid rgba(255,252,247,0.14);
-      border-radius: 10px; padding: 12px 14px; color: var(--warm-white);
-      font-family: 'DM Sans', sans-serif; font-size: 0.92rem; outline: none;
-      transition: border-color 200ms, background 200ms; width: 100%;
-    }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-      border-color: rgba(245,158,11,0.5); background: rgba(255,252,247,0.11);
-    }
+    .form-group label { font-size: 0.8rem; font-weight: 600; color: rgba(255,252,247,0.55); letter-spacing: 0.04em; text-transform: uppercase; }
+    .form-group input, .form-group select, .form-group textarea { background: rgba(255,252,247,0.08); border: 1px solid rgba(255,252,247,0.14); border-radius: 10px; padding: 12px 14px; color: var(--warm-white); font-family: 'DM Sans', sans-serif; font-size: 0.92rem; outline: none; transition: border-color 200ms, background 200ms; width: 100%; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: rgba(245,158,11,0.5); background: rgba(255,252,247,0.11); }
     .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,252,247,0.3); }
+    .form-group select { color: rgba(255,252,247,0.86); }
     .form-group select option { background: #1a1208; color: var(--warm-white); }
     .form-group textarea { min-height: 110px; resize: vertical; }
     .form-note { font-size: 0.78rem; color: rgba(255,252,247,0.38); margin-top: 4px; }
-    .contact-options-box {
-      display: none; background: rgba(217,119,6,0.1); border: 1px solid rgba(217,119,6,0.25);
-      border-radius: 12px; padding: 18px; gap: 14px; flex-direction: column;
-    }
+    .contact-options-box { display: none; background: rgba(217,119,6,0.1); border: 1px solid rgba(217,119,6,0.25); border-radius: 12px; padding: 18px; gap: 14px; flex-direction: column; }
     .contact-options-box.visible { display: flex; }
     .contact-options-title { font-weight: 600; font-size: 0.9rem; color: var(--warm-white); }
     .contact-options-sub { font-size: 0.83rem; color: rgba(255,252,247,0.55); margin-top: 2px; }
     .contact-btns { display: flex; flex-wrap: wrap; gap: 10px; }
-    .contact-btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 10px 18px; border-radius: 999px; font-size: 0.85rem;
-      font-weight: 600; cursor: pointer; transition: transform 150ms, opacity 150ms; border: none;
-    }
-    .contact-btn:hover { transform: translateY(-1px); opacity: 0.92; }
+    .contact-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: transform 150ms; border: none; }
+    .contact-btn:hover { transform: translateY(-1px); }
     .contact-btn-email { background: var(--amber); color: #451a03; }
     .contact-btn-wa { background: #25d366; color: #0a2e14; }
     .contact-btn-call { background: transparent; color: rgba(255,252,247,0.8); border: 1px solid rgba(255,252,247,0.2); }
 
-    /* FOOTER */
+    /* ── FOOTER ── */
     footer { background: #0e0a04; padding: 32px 24px; }
     .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
     .footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
-    .footer-brand {
-      font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 700;
-      color: rgba(255,252,247,0.8); display: flex; align-items: center; gap: 10px;
-    }
+    .footer-brand { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 700; color: rgba(255,252,247,0.8); display: flex; align-items: center; gap: 10px; }
     .footer-links { display: flex; flex-wrap: wrap; gap: 12px; }
-    .footer-link {
-      display: inline-flex; align-items: center; gap: 7px;
-      padding: 8px 16px; border-radius: 999px; font-size: 0.85rem; font-weight: 600;
-      color: rgba(255,252,247,0.7); background: rgba(255,252,247,0.07);
-      border: 1px solid rgba(255,252,247,0.1); transition: background 150ms, color 150ms;
-    }
+    .footer-link { display: inline-flex; align-items: center; gap: 7px; padding: 8px 16px; border-radius: 999px; font-size: 0.85rem; font-weight: 600; color: rgba(255,252,247,0.7); background: rgba(255,252,247,0.07); border: 1px solid rgba(255,252,247,0.1); transition: background 150ms, color 150ms; }
     .footer-link:hover { background: rgba(255,252,247,0.12); color: var(--warm-white); }
     .footer-link svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2; fill: none; }
     .footer-link-primary { background: var(--amber); color: #451a03; border-color: transparent; }
     .footer-link-primary:hover { background: var(--amber-mid); color: #451a03; }
-    .footer-bottom {
-      padding-top: 20px; border-top: 1px solid rgba(255,252,247,0.08);
-      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px;
-    }
+    .footer-bottom { padding-top: 20px; border-top: 1px solid rgba(255,252,247,0.08); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; }
     .footer-credit { font-size: 0.78rem; color: rgba(255,252,247,0.3); font-weight: 500; }
     .footer-tagline { font-size: 0.78rem; color: rgba(255,252,247,0.3); }
 
-    /* RESPONSIVE */
-    @media (min-width: 640px) {
-      .nav-links { display: flex; }
-    }
+    /* ── RESPONSIVE ── */
+    @media (min-width: 640px) { .nav-links { display: flex; } }
     @media (min-width: 900px) {
-      .hero-inner { grid-template-columns: 1fr 420px; }
-      .about-grid { grid-template-columns: 1fr 1fr; }
+      .hero-inner { grid-template-columns: 1fr 400px; }
+      .problem-grid { grid-template-columns: 1fr 1fr; }
+      .image-cards { grid-template-columns: repeat(3,1fr); }
       .why-grid { grid-template-columns: 1fr 1fr; }
       .cta-grid { grid-template-columns: 1fr 1fr; }
       .steps { grid-template-columns: repeat(4,1fr); }
+      .pipeline { grid-template-columns: repeat(4,1fr); }
     }
     @media (max-width: 540px) {
       .form-row-2 { grid-template-columns: 1fr; }
       .steps::before { display: none; }
       .proof-divider { display: none; }
-      .hero-proof { gap: 16px; }
+      .pipeline { grid-template-columns: repeat(2,1fr); }
     }
 
-    /* ENTER ANIMATIONS */
+    /* ── ANIMATIONS ── */
     @keyframes fadeUp { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
     .hero-content > * { animation: fadeUp 0.6s ease both; }
     .hero-content > *:nth-child(1){animation-delay:.05s;}
@@ -459,93 +293,104 @@
     .hero-content > *:nth-child(4){animation-delay:.35s;}
     .hero-content > *:nth-child(5){animation-delay:.45s;}
     @media (prefers-reduced-motion: reduce) {
-      *,*::before,*::after { animation-duration:.001ms!important; transition-duration:.001ms!important; }
+      *,*::before,*::after { animation-duration:.001ms!important; transition-duration:.001ms!important; scroll-behavior:auto!important; }
     }
   </style>
 </head>
 <body>
 
+<!-- NAV -->
 <header class="site-header">
-  <nav class="nav">
-    <a class="brand" href="#top">
+  <nav class="nav" aria-label="Primary navigation">
+    <a class="brand" href="#top" aria-label="SearchCubes home">
       <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
       SearchCubes
     </a>
     <ul class="nav-links">
+      <li><a href="#growth-leaks">Growth leaks</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#process">Process</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a class="btn btn-primary" href="#contact">Book a free call</a>
+    <a class="btn btn-primary" href="#consultation">Contact us</a>
   </nav>
 </header>
 
 <main id="top">
 
-  <!-- HERO -->
-  <section class="hero">
+  <!-- HERO — background uses searchcubes-hero.jpg -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-img-bg">
+      <img
+        src="assets/searchcubes-hero.jpg"
+        alt=""
+        aria-hidden="true"
+        fetchpriority="high"
+      />
+    </div>
+    <div class="hero-bg" aria-hidden="true"></div>
+
     <div class="hero-inner">
       <div class="hero-content">
         <div class="hero-badge">
-          <span class="badge-dot"></span>
-          Open to new clients · 2 spots available
+          <span class="badge-dot" aria-hidden="true"></span>
+          Performance marketing built around revenue signals
         </div>
-        <h1>Your marketing spend should <em>earn its keep.</em></h1>
+        <h1 id="hero-title">Turn search, paid and social media into a measurable growth system.</h1>
         <p class="hero-sub">
-          I'm a freelance growth marketer helping small businesses turn scattered campaigns into a focused system — more leads, less wasted budget, and reporting you can actually understand.
+          SearchCubes helps ambitious businesses replace scattered marketing activity with a focused acquisition engine:
+          sharper visibility, better-qualified leads, cleaner conversion paths, and reporting that shows what is actually moving ROI.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-accent" href="#contact">Book a free 30-min call</a>
-          <a class="btn btn-ghost" href="#services">See what I do</a>
+          <a class="btn btn-accent" href="#consultation">Book a growth audit</a>
+          <a class="btn btn-ghost" href="#services" style="color:rgba(255,252,247,0.85);border-color:rgba(255,252,247,0.22);">Services</a>
         </div>
         <div class="hero-proof">
           <div class="proof-item">
-            <span class="proof-num">₹0</span>
-            <span class="proof-label">Upfront fee</span>
+            <span class="proof-num">+78%</span>
+            <span class="proof-label">Search demand</span>
           </div>
           <div class="proof-divider"></div>
           <div class="proof-item">
-            <span class="proof-num">30 days</span>
-            <span class="proof-label">To first results</span>
+            <span class="proof-num">+64%</span>
+            <span class="proof-label">Lead quality</span>
           </div>
           <div class="proof-divider"></div>
           <div class="proof-item">
-            <span class="proof-num">1 person</span>
-            <span class="proof-label">You talk to me, always</span>
+            <span class="proof-num">−43%</span>
+            <span class="proof-label">CPA control</span>
           </div>
         </div>
       </div>
 
-      <div class="hero-panel" aria-label="Sample results snapshot">
-        <p class="panel-label">What good marketing looks like ↓</p>
+      <div class="hero-panel" aria-label="Growth signal visualization">
+        <p class="panel-label">Growth signal snapshot</p>
         <div class="metric-row">
           <div class="metric-item">
             <div class="metric-header">
-              <span class="metric-name">Organic search traffic</span>
+              <span class="metric-name">Search demand</span>
               <span class="metric-val">+78%</span>
             </div>
             <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:78%"></div></div>
           </div>
           <div class="metric-item">
             <div class="metric-header">
-              <span class="metric-name">Lead quality score</span>
+              <span class="metric-name">Lead quality</span>
               <span class="metric-val">+64%</span>
             </div>
             <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:64%"></div></div>
           </div>
           <div class="metric-item">
             <div class="metric-header">
-              <span class="metric-name">Cost per lead</span>
-              <span class="metric-val" style="color:var(--rust)">−43%</span>
+              <span class="metric-name">CPA control</span>
+              <span class="metric-val" style="color:#f87171">−43%</span>
             </div>
             <div class="metric-bar-bg">
-              <div class="metric-bar-fill" style="width:43%;background:linear-gradient(90deg,var(--rust),var(--amber))"></div>
+              <div class="metric-bar-fill" style="width:43%;background:linear-gradient(90deg,#e57373,var(--amber-mid))"></div>
             </div>
           </div>
         </div>
-        <div class="panel-note">
-          <strong>Honest note:</strong> These are realistic targets, not guarantees. Your results depend on your product, market, and starting point — I'll tell you what's actually achievable on our first call.
+        <div class="panel-caption">
+          Every channel measured against the same growth target.
         </div>
       </div>
     </div>
@@ -555,88 +400,117 @@
   <div class="trust-strip">
     <div class="trust-scroll">
       <div class="trust-item">
-        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-        </svg>
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
         SEO + Paid + Social under one plan
       </div>
       <div class="trust-item">
-        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-        </svg>
-        Weekly check-ins, no black boxes
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Weekly optimization loops
       </div>
       <div class="trust-item">
-        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
-          <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
-        </svg>
-        One dedicated contact — me
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Decision-ready reporting
       </div>
       <div class="trust-item">
-        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-        </svg>
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
         Tracking set up before any spend
       </div>
     </div>
   </div>
 
-  <!-- ABOUT -->
-  <section id="about" class="section about">
-    <div class="container about-grid">
-      <div class="about-card">
-        <div class="avatar-wrap">
-          <div class="avatar" aria-hidden="true">S</div>
-          <div class="avatar-info">
-            <strong>SearchCubes</strong>
-            <span>Freelance Growth Marketer</span>
-            <div class="status-badge">
-              <span class="status-dot" aria-hidden="true"></span>
-              Taking new clients
+  <!-- GROWTH LEAKS + IMAGE CARDS -->
+  <section id="growth-leaks" class="section problem">
+    <div class="container">
+      <div class="problem-grid">
+        <div>
+          <span class="section-label">The real problem</span>
+          <h2 class="section-title">Most marketing does not fail from lack of activity.</h2>
+          <p class="section-sub">
+            It fails because the work is disconnected: SEO targets traffic without conversion intent, paid campaigns spend before tracking is clean,
+            social content builds attention without a next step, and reporting arrives too late to change decisions.
+          </p>
+          <div class="leak-list">
+            <div class="leak-item">
+              <span class="leak-dot" aria-hidden="true"></span>
+              <span><strong>Traffic with weak intent</strong>More visitors do not help if the pages, offers, and CTAs fail to move qualified buyers.</span>
+            </div>
+            <div class="leak-item">
+              <span class="leak-dot" aria-hidden="true"></span>
+              <span><strong>Ad spend without signal</strong>Budgets disappear when campaigns are optimized for clicks instead of cost per opportunity.</span>
+            </div>
+            <div class="leak-item">
+              <span class="leak-dot" aria-hidden="true"></span>
+              <span><strong>Reports without decisions</strong>Dashboards only matter when they tell the team what to stop, fix, test, or scale next.</span>
             </div>
           </div>
         </div>
-        <div class="about-body">
-          <p>Hi! I'm the person behind SearchCubes — a solo freelancer who genuinely enjoys the puzzle of figuring out why a business isn't getting enough leads, and fixing it.</p>
-          <p>I'm not a big agency with dozens of clients and a junior team doing your work. When you hire me, you get my full attention on your campaigns, your tracking, and your results.</p>
-        </div>
-        <div class="skill-tags">
-          <span class="tag">SEO</span>
-          <span class="tag">Google Ads</span>
-          <span class="tag">Meta Ads</span>
-          <span class="tag">GA4</span>
-          <span class="tag">Content</span>
-          <span class="tag">Landing Pages</span>
+
+        <div class="solution-board" aria-label="SearchCubes growth system">
+          <div class="board-top">
+            <strong>SearchCubes Growth System</strong>
+            <span>Built for measurable acquisition</span>
+          </div>
+          <div class="pipeline">
+            <div class="pipeline-step"><strong>01</strong><span>Find high-intent demand</span></div>
+            <div class="pipeline-step"><strong>02</strong><span>Match message to buyer pain</span></div>
+            <div class="pipeline-step"><strong>03</strong><span>Convert traffic into leads</span></div>
+            <div class="pipeline-step"><strong>04</strong><span>Scale what proves ROI</span></div>
+          </div>
+          <div class="sol-metric">
+            <div class="sol-metric-header"><span class="sol-metric-label">Revenue signal quality</span><span class="sol-metric-val">84%</span></div>
+            <div class="sol-bar-bg"><div class="sol-bar-fill" style="width:84%"></div></div>
+          </div>
+          <div class="sol-metric">
+            <div class="sol-metric-header"><span class="sol-metric-label">Decision speed</span><span class="sol-metric-val">+71%</span></div>
+            <div class="sol-bar-bg"><div class="sol-bar-fill" style="width:71%"></div></div>
+          </div>
         </div>
       </div>
-      <div>
-        <span class="section-label">About me</span>
-        <h2 class="section-title">I'm new — and that actually works in your favour.</h2>
-        <p class="section-sub">Fresh out of the gate means I'm hungry to prove myself. I take fewer clients, respond faster, work harder on each one, and I don't over-promise.</p>
-        <ul class="why-list">
-          <li class="why-item">
-            <div class="why-icon" aria-hidden="true">🎯</div>
-            <div>
-              <h4>Full attention, not divided</h4>
-              <p>I'm not juggling 30 accounts. You get genuine focus — and you'll feel the difference in how fast I respond and how much I know about your business.</p>
-            </div>
-          </li>
-          <li class="why-item">
-            <div class="why-icon" aria-hidden="true">📊</div>
-            <div>
-              <h4>Trained on current best practices</h4>
-              <p>I haven't spent years running the same playbook from 2017. Everything I do is based on how platforms and algorithms actually work today.</p>
-            </div>
-          </li>
-          <li class="why-item">
-            <div class="why-icon" aria-hidden="true">🤝</div>
-            <div>
-              <h4>Built around trust, not retainers</h4>
-              <p>No lock-in. No obscure fees. You'll know exactly what I'm doing, why, and what it should produce. If it's not working, we talk.</p>
-            </div>
-          </li>
-        </ul>
+
+      <!-- Three image cards — original assets/strategy-session.jpg, assets/performance-tracking.jpg, assets/client-clarity.jpg -->
+      <div class="image-cards" aria-label="How SearchCubes works in practice">
+        <article class="img-card">
+          <div class="img-card-visual" data-label="Strategy session">
+            <img
+              src="assets/strategy-session.jpg"
+              alt="Marketing team reviewing campaign strategy in a meeting"
+              loading="lazy"
+            />
+            <span class="img-label">Strategy session</span>
+          </div>
+          <div class="img-card-body">
+            <h3>Show the thinking behind the work.</h3>
+            <p>Use imagery that feels like senior operators reviewing the funnel, not anonymous people smiling at a laptop.</p>
+          </div>
+        </article>
+        <article class="img-card">
+          <div class="img-card-visual" data-label="Performance tracking">
+            <img
+              src="assets/performance-tracking.jpg"
+              alt="Marketing performance dashboard with charts and KPI tracking"
+              loading="lazy"
+            />
+            <span class="img-label">Performance tracking</span>
+          </div>
+          <div class="img-card-body">
+            <h3>Make measurement visible.</h3>
+            <p>Dashboards, campaign reviews, and reporting visuals reinforce SearchCubes as a results partner.</p>
+          </div>
+        </article>
+        <article class="img-card">
+          <div class="img-card-visual" data-label="Client clarity">
+            <img
+              src="assets/client-clarity.jpg"
+              alt="Consultant discussing growth priorities with a client"
+              loading="lazy"
+            />
+            <span class="img-label">Client clarity</span>
+          </div>
+          <div class="img-card-body">
+            <h3>Show client-facing confidence.</h3>
+            <p>The best visuals should feel consultative, decisive, and commercially grounded.</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -644,70 +518,100 @@
   <!-- SERVICES -->
   <section id="services" class="section services">
     <div class="container">
-      <span class="section-label">What I offer</span>
-      <h2 class="section-title">Marketing that actually connects to revenue.</h2>
-      <p class="section-sub">Each service is planned around one question: where will you get more qualified leads, and what will it cost?</p>
+      <span class="section-label">Growth channels</span>
+      <h2 class="section-title">Services that connect attention to pipeline.</h2>
+      <p class="section-sub">Each channel is planned around the same commercial question: where can we create more qualified demand, convert it faster, and prove the return?</p>
       <div class="services-grid">
         <article class="service-card">
-          <div class="service-icon icon-amber" aria-hidden="true">🔍</div>
-          <h3>SEO — organic leads on autopilot</h3>
-          <p>Getting found on Google without paying per click. I fix what's technically broken, find the keywords buyers actually use, and build the content that earns rankings over time.</p>
+          <div class="service-icon icon-blue">SEO</div>
+          <h3>SEO that earns intent</h3>
+          <p>Technical fixes, content architecture, and authority-building aimed at keywords buyers actually use.</p>
           <ul class="service-list">
-            <li><span class="check" aria-hidden="true">✓</span>Technical site audit &amp; fixes</li>
-            <li><span class="check" aria-hidden="true">✓</span>Keyword research by buyer intent</li>
-            <li><span class="check" aria-hidden="true">✓</span>Content planning &amp; optimisation</li>
+            <li><span class="check" aria-hidden="true">✓</span>Opportunity mapping by search intent</li>
+            <li><span class="check" aria-hidden="true">✓</span>Technical audits and content velocity</li>
+            <li><span class="check" aria-hidden="true">✓</span>Rankings tied to lead impact</li>
           </ul>
         </article>
         <article class="service-card">
-          <div class="service-icon icon-sage" aria-hidden="true">📢</div>
-          <h3>Paid Ads — spend only where it works</h3>
-          <p>Google, Meta, or Instagram — whichever fits your audience. Tracking goes live before any budget does, so you always know what a lead actually cost.</p>
+          <div class="service-icon icon-sage">PPC</div>
+          <h3>Paid media with spend discipline</h3>
+          <p>Campaigns built to find profitable demand, cut waste, and scale only when conversion data supports it.</p>
           <ul class="service-list">
-            <li><span class="check" aria-hidden="true">✓</span>Search, display &amp; remarketing</li>
-            <li><span class="check" aria-hidden="true">✓</span>Conversion tracking setup first</li>
-            <li><span class="check" aria-hidden="true">✓</span>Weekly budget &amp; performance review</li>
+            <li><span class="check" aria-hidden="true">✓</span>Search, display, remarketing, and shopping</li>
+            <li><span class="check" aria-hidden="true">✓</span>Landing page alignment</li>
+            <li><span class="check" aria-hidden="true">✓</span>Weekly optimization loops</li>
           </ul>
         </article>
         <article class="service-card">
-          <div class="service-icon icon-amber" aria-hidden="true">📱</div>
-          <h3>Social Media — attention that converts</h3>
-          <p>Building an audience is only useful if it leads somewhere. Content planned to fit your brand and link the scroll to the sale.</p>
+          <div class="service-icon icon-rust">SM</div>
+          <h3>Social that creates momentum</h3>
+          <p>Organic and paid social programs that build trust before the sales conversation starts.</p>
           <ul class="service-list">
-            <li><span class="check" aria-hidden="true">✓</span>Platform-appropriate content strategy</li>
-            <li><span class="check" aria-hidden="true">✓</span>Paid social targeting &amp; creative testing</li>
+            <li><span class="check" aria-hidden="true">✓</span>Platform-specific content angles</li>
+            <li><span class="check" aria-hidden="true">✓</span>Creative testing and audience learning</li>
             <li><span class="check" aria-hidden="true">✓</span>Community-to-conversion pathways</li>
           </ul>
         </article>
         <article class="service-card">
-          <div class="service-icon icon-rust" aria-hidden="true">✍️</div>
-          <h3>Content &amp; Landing Pages — words that sell</h3>
-          <p>Pages structured around what your buyers are actually wondering when they land — objections answered, next steps obvious.</p>
+          <div class="service-icon icon-blue">CX</div>
+          <h3>Content that answers buying friction</h3>
+          <p>Messaging, pages, and assets that turn unclear interest into confident next steps.</p>
           <ul class="service-list">
-            <li><span class="check" aria-hidden="true">✓</span>Homepage &amp; landing page copy</li>
-            <li><span class="check" aria-hidden="true">✓</span>Blog posts &amp; guides (built for SEO)</li>
-            <li><span class="check" aria-hidden="true">✓</span>Email sequences &amp; nurture flows</li>
+            <li><span class="check" aria-hidden="true">✓</span>Conversion copy and landing pages</li>
+            <li><span class="check" aria-hidden="true">✓</span>Blogs, guides, case assets, and nurture</li>
+            <li><span class="check" aria-hidden="true">✓</span>Content mapped to funnel stages</li>
           </ul>
         </article>
         <article class="service-card">
-          <div class="service-icon icon-sage" aria-hidden="true">📈</div>
-          <h3>Analytics &amp; Reporting — know what's working</h3>
-          <p>GA4, Meta Pixel, CRM connections — I get tracking clean so your monthly report tells you what to do next, not just what happened.</p>
+          <div class="service-icon icon-sage">AN</div>
+          <h3>Analytics that expose what works</h3>
+          <p>Clean tracking, dashboards, and attribution views that turn reporting into action, not theater.</p>
           <ul class="service-list">
-            <li><span class="check" aria-hidden="true">✓</span>GA4 + conversion tracking setup</li>
-            <li><span class="check" aria-hidden="true">✓</span>Monthly report in plain English</li>
-            <li><span class="check" aria-hidden="true">✓</span>Clear stop / fix / scale recommendations</li>
+            <li><span class="check" aria-hidden="true">✓</span>GA4, pixels, CRM, and event tracking</li>
+            <li><span class="check" aria-hidden="true">✓</span>Lead source and campaign visibility</li>
+            <li><span class="check" aria-hidden="true">✓</span>Decision-ready reporting</li>
           </ul>
         </article>
         <article class="service-card">
-          <div class="service-icon icon-amber" aria-hidden="true">🗺️</div>
-          <h3>Growth Strategy — 90-day roadmap</h3>
-          <p>Not sure where to start? I audit what you have, rank opportunities by impact, and build a practical plan with realistic targets — no fluff.</p>
+          <div class="service-icon icon-rust">GS</div>
+          <h3>Growth strategy with accountability</h3>
+          <p>A clear operating plan that prioritizes channels, budgets, tests, and expected commercial outcomes.</p>
           <ul class="service-list">
-            <li><span class="check" aria-hidden="true">✓</span>Full funnel &amp; competitor audit</li>
-            <li><span class="check" aria-hidden="true">✓</span>Prioritised 90-day growth plan</li>
-            <li><span class="check" aria-hidden="true">✓</span>Channel &amp; budget recommendations</li>
+            <li><span class="check" aria-hidden="true">✓</span>90-day growth roadmaps</li>
+            <li><span class="check" aria-hidden="true">✓</span>Messaging and offer refinement</li>
+            <li><span class="check" aria-hidden="true">✓</span>Performance review cadence</li>
           </ul>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY SEARCHCUBES -->
+  <section class="section why">
+    <div class="container why-grid">
+      <div>
+        <span class="section-label">Why SearchCubes</span>
+        <h2 class="section-title">Less marketing noise. More revenue clarity.</h2>
+        <p class="section-sub">SearchCubes is positioned as the partner business owners call when they need marketing to become more measurable, more disciplined, and more connected to sales outcomes.</p>
+        <div class="why-panel">
+          <h3>Strategy before spend</h3>
+          <p>Budgets move after the market, funnel, tracking, and offer are understood. That prevents campaigns from scaling weak assumptions.</p>
+        </div>
+        <ul class="why-list">
+          <li><span class="check" aria-hidden="true">✓</span>Commercial goals translated into channel priorities</li>
+          <li><span class="check" aria-hidden="true">✓</span>Creative execution tied to buyer objections</li>
+          <li><span class="check" aria-hidden="true">✓</span>Reporting focused on leads, conversion rate, CPA, and ROI</li>
+          <li><span class="check" aria-hidden="true">✓</span>Transparent work rhythms with no black-box retainers</li>
+        </ul>
+      </div>
+      <div class="solution-board" style="border-radius:20px;padding:36px;" aria-label="SearchCubes positioning">
+        <p style="font-family:'Fraunces',serif;font-style:italic;font-size:1.2rem;line-height:1.6;color:rgba(255,252,247,0.88);margin-bottom:28px;">"SearchCubes is the partner business owners call when they need marketing to become more measurable, more disciplined, and more connected to sales outcomes."</p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;align-items:center;gap:10px;font-size:0.9rem;color:rgba(255,252,247,0.72);font-weight:500;"><span style="width:20px;height:20px;border-radius:50%;background:rgba(245,158,11,0.25);border:1px solid rgba(245,158,11,0.4);display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--amber-mid);flex-shrink:0;">✓</span>No black-box retainers</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:0.9rem;color:rgba(255,252,247,0.72);font-weight:500;"><span style="width:20px;height:20px;border-radius:50%;background:rgba(245,158,11,0.25);border:1px solid rgba(245,158,11,0.4);display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--amber-mid);flex-shrink:0;">✓</span>Reporting focused on leads, CPA, and ROI</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:0.9rem;color:rgba(255,252,247,0.72);font-weight:500;"><span style="width:20px;height:20px;border-radius:50%;background:rgba(245,158,11,0.25);border:1px solid rgba(245,158,11,0.4);display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--amber-mid);flex-shrink:0;">✓</span>Creative execution tied to buyer objections</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:0.9rem;color:rgba(255,252,247,0.72);font-weight:500;"><span style="width:20px;height:20px;border-radius:50%;background:rgba(245,158,11,0.25);border:1px solid rgba(245,158,11,0.4);display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--amber-mid);flex-shrink:0;">✓</span>Commercial goals into channel priorities</div>
+        </div>
       </div>
     </div>
   </section>
@@ -716,178 +620,122 @@
   <section id="process" class="section process">
     <div class="container">
       <span class="section-label">How it works</span>
-      <h2 class="section-title">Simple, transparent, and no surprises.</h2>
-      <p class="section-sub">From first call to live campaigns — here's exactly what to expect.</p>
+      <h2 class="section-title">A transparent operating system for growth.</h2>
+      <p class="section-sub">The process makes SearchCubes feel dependable: clients can see the thinking, the work, and the performance signal behind every decision.</p>
       <div class="steps">
         <div class="step">
           <div class="step-num" aria-hidden="true">01</div>
-          <h3>Free discovery call</h3>
-          <p>30 minutes to understand your business, goals, and where marketing feels stuck. No pitch, just honest conversation.</p>
+          <h3>Diagnose</h3>
+          <p>Audit current traffic, campaigns, tracking, competitors, conversion paths, and sales handoff quality.</p>
         </div>
         <div class="step">
           <div class="step-num" aria-hidden="true">02</div>
-          <h3>Audit &amp; priorities</h3>
-          <p>I review your traffic, campaigns, tracking, and competitors, then give you a clear diagnosis with the highest-impact starting points.</p>
+          <h3>Prioritize</h3>
+          <p>Build a 90-day plan that ranks opportunities by revenue potential, speed to impact, and execution effort.</p>
         </div>
         <div class="step">
           <div class="step-num" aria-hidden="true">03</div>
-          <h3>Execute in sprints</h3>
-          <p>Work happens in focused 2-week blocks with clear goals. You always know what's in progress and what it should deliver.</p>
+          <h3>Execute</h3>
+          <p>Launch SEO, PPC, content, social, and landing-page work in focused sprints with clear owners.</p>
         </div>
         <div class="step">
           <div class="step-num" aria-hidden="true">04</div>
-          <h3>Review &amp; scale</h3>
-          <p>Weekly check-ins, monthly reports in plain English. We keep what's working and cut what isn't — together.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY / HONESTY -->
-  <section class="section why">
-    <div class="container why-grid">
-      <div>
-        <span class="section-label">Why SearchCubes</span>
-        <h2 class="section-title">Less noise, more clarity.</h2>
-        <p class="section-sub">Working with a solo freelancer isn't a compromise — for the right business, it's the smarter choice.</p>
-        <ul class="why-list">
-          <li class="why-item">
-            <div class="why-icon" aria-hidden="true">💬</div>
-            <div>
-              <h4>You always talk to the person doing the work</h4>
-              <p>No account managers, no handoffs to juniors. Every question gets answered by someone who knows your campaigns inside out.</p>
-            </div>
-          </li>
-          <li class="why-item">
-            <div class="why-icon" aria-hidden="true">🔍</div>
-            <div>
-              <h4>Strategy first, spend second</h4>
-              <p>Proper tracking goes in before a single ad runs. You'll always know where your leads come from and exactly what they cost.</p>
-            </div>
-          </li>
-          <li class="why-item">
-            <div class="why-icon" aria-hidden="true">📋</div>
-            <div>
-              <h4>Reports you can actually read</h4>
-              <p>No jargon-filled dashboards. Monthly summaries that say: here's what happened, here's why, here's what we do next.</p>
-            </div>
-          </li>
-          <li class="why-item">
-            <div class="why-icon" aria-hidden="true">🚪</div>
-            <div>
-              <h4>No lock-in, ever</h4>
-              <p>Month-to-month. Stay because results are happening — not because a contract says you have to.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="honesty-card">
-        <p>"I'm new to freelancing — I won't pretend otherwise. What I do have is sharp current knowledge, genuine motivation to over-deliver, and the honesty to tell you when something isn't working instead of quietly billing you for it."</p>
-        <div class="honesty-author">
-          <div class="honesty-avatar" aria-hidden="true">S</div>
-          <div>
-            <strong style="color:rgba(255,252,247,0.9);font-weight:600;display:block;">SearchCubes</strong>
-            <span>Founder &amp; sole operator</span>
-          </div>
+          <h3>Optimize</h3>
+          <p>Review signal weekly, report what changed, and scale the channels, pages, and messages that prove traction.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="section faq">
+  <section class="section faq">
     <div class="container">
-      <span class="section-label">Common questions</span>
-      <h2 class="section-title">Things people ask before booking.</h2>
+      <span class="section-label">Buyer questions</span>
+      <h2 class="section-title">Handle the objections before the call.</h2>
       <div class="faq-list">
         <details open>
-          <summary>How quickly can I expect results? <span class="faq-arrow" aria-hidden="true">+</span></summary>
-          <p>Paid ads can show early signal within 2–4 weeks once tracking is clean. SEO is slower — expect meaningful movement in 3–6 months. On the first call I'll be specific about what's realistic for your situation, not just give you optimistic numbers.</p>
+          <summary>How fast can a business expect to see movement? <span class="faq-arrow" aria-hidden="true">+</span></summary>
+          <p>Paid media and landing-page improvements can surface signal within weeks. SEO and content typically compound over 90 days and beyond. The first audit prioritizes quick wins, tracking gaps, and longer-term search opportunities.</p>
         </details>
         <details>
-          <summary>If you're new, why should I trust you with my budget? <span class="faq-arrow" aria-hidden="true">+</span></summary>
-          <p>Fair question. I take fewer clients so I can give more. I'm trained on how platforms actually work today — not habits from 5 years ago. And I'm transparent about what I know and don't know. If I can't do something well, I'll say so before we start, not after charging you.</p>
+          <summary>What makes SearchCubes different from a standard marketing agency? <span class="faq-arrow" aria-hidden="true">+</span></summary>
+          <p>The work is organized around measurable acquisition: demand, message, conversion, and reporting. Channels are not treated as separate tasks; they are connected to one growth plan and reviewed against commercial outcomes.</p>
         </details>
         <details>
-          <summary>Do I need a big ad budget to get started? <span class="faq-arrow" aria-hidden="true">+</span></summary>
-          <p>No. We start with tracking and conversion-path fixes — which cost almost nothing but make every future rupee work harder. When we do start paid ads, I'll recommend a budget based on what can generate meaningful data, not just spend money to look busy.</p>
+          <summary>Do we need a large ad budget to start? <span class="faq-arrow" aria-hidden="true">+</span></summary>
+          <p>No. The starting point is a practical plan: clean tracking, stronger conversion paths, and a budget model that can produce useful signal. Spend should scale after the data shows where quality leads are coming from.</p>
         </details>
         <details>
-          <summary>What do I need to prepare for the first call? <span class="faq-arrow" aria-hidden="true">+</span></summary>
-          <p>Just bring your website URL, a rough idea of your monthly marketing budget, and your main business goal — more leads, more sales, better quality clients, whatever it is. I can figure the rest out from there.</p>
-        </details>
-        <details>
-          <summary>Can I work with you if I'm outside India? <span class="faq-arrow" aria-hidden="true">+</span></summary>
-          <p>Yes — I work remotely over email, WhatsApp, and video calls. Most of what I do is platform-agnostic, though I know the Indian market especially well if that's your audience.</p>
+          <summary>What should be prepared before booking a growth audit? <span class="faq-arrow" aria-hidden="true">+</span></summary>
+          <p>Bring your website, current marketing channels, rough monthly spend, lead goals, and any reporting access available. If tracking is incomplete, that becomes part of the diagnosis.</p>
         </details>
       </div>
     </div>
   </section>
 
   <!-- CTA / CONTACT -->
-  <section id="contact" class="cta-section">
+  <section id="consultation" class="cta-section">
     <div class="cta-grid">
       <div>
-        <span class="section-label">Let's talk</span>
-        <h2 class="section-title">First conversation is always free.</h2>
-        <p class="section-sub">No pitch, no pressure. Just an honest look at where your marketing is leaking and what the fastest fix looks like.</p>
+        <span class="section-label">Start with clarity</span>
+        <h2 class="section-title">Find the fastest path from marketing spend to measurable growth.</h2>
+        <p class="section-sub">Share where growth feels stuck. SearchCubes will review your visibility, paid media, tracking, and conversion paths, then map the first moves that can improve lead quality and ROI.</p>
         <div class="cta-perks">
-          <div class="perk"><span class="perk-check" aria-hidden="true">✓</span>30-minute call, no obligation</div>
-          <div class="perk"><span class="perk-check" aria-hidden="true">✓</span>I'll review your current setup before we speak</div>
-          <div class="perk"><span class="perk-check" aria-hidden="true">✓</span>You'll leave with at least one actionable fix</div>
-          <div class="perk"><span class="perk-check" aria-hidden="true">✓</span>No agency jargon, no fluff</div>
+          <div class="perk"><span class="perk-check" aria-hidden="true">✓</span>No generic proposal</div>
+          <div class="perk"><span class="perk-check" aria-hidden="true">✓</span>Built around your current funnel, goals, and data gaps</div>
+          <div class="perk"><span class="perk-check" aria-hidden="true">✓</span>First conversation focused on your actual numbers</div>
+          <div class="perk"><span class="perk-check" aria-hidden="true">✓</span>Clear next steps from day one</div>
         </div>
       </div>
       <div class="contact-form">
-        <p class="form-title">Tell me a bit about your business</p>
-        <div class="form-grid" id="audit-form">
+        <p class="form-title">Request a growth audit</p>
+        <div class="form-grid" id="growth-audit-form">
           <div class="form-row-2">
             <div class="form-group">
-              <label for="f-name">Your name</label>
-              <input id="f-name" type="text" name="name" placeholder="Rahul" />
+              <label for="f-name">Name</label>
+              <input id="f-name" aria-label="Name" name="name" placeholder="Name" />
             </div>
             <div class="form-group">
               <label for="f-email">Business email</label>
-              <input id="f-email" type="email" name="email" placeholder="you@company.com" />
+              <input id="f-email" aria-label="Business email" name="email" type="email" placeholder="Business email" />
             </div>
           </div>
           <div class="form-row-2">
             <div class="form-group">
-              <label for="f-company">Company / Brand</label>
-              <input id="f-company" type="text" name="company" placeholder="Acme Pvt. Ltd." />
+              <label for="f-company">Company</label>
+              <input id="f-company" aria-label="Company" name="company" placeholder="Company" />
             </div>
             <div class="form-group">
-              <label for="f-goal">Biggest goal right now</label>
-              <select id="f-goal" name="goal">
-                <option value="">Pick one…</option>
+              <label for="f-priority">Primary growth priority</label>
+              <select id="f-priority" aria-label="Primary growth priority" name="priority">
+                <option>Primary growth priority</option>
                 <option>More qualified leads</option>
-                <option>Better SEO / organic traffic</option>
-                <option>Lower ad spend waste</option>
-                <option>Higher conversion rate</option>
-                <option>Set up proper tracking</option>
-                <option>Not sure — need a diagnosis</option>
+                <option>Better SEO visibility</option>
+                <option>Lower paid media waste</option>
+                <option>Stronger conversion rate</option>
+                <option>Cleaner tracking and reporting</option>
               </select>
             </div>
           </div>
           <div class="form-group">
-            <label for="f-challenge">What's the main challenge?</label>
-            <textarea id="f-challenge" name="challenge" placeholder="e.g. We're running Google Ads but leads are low quality, or we have no idea why our website traffic dropped…"></textarea>
+            <label for="f-challenge">Growth challenge</label>
+            <textarea id="f-challenge" aria-label="Growth challenge" name="challenge" placeholder="What is the growth challenge you want to solve first?"></textarea>
           </div>
-          <button type="button" class="btn btn-accent" id="submit-btn" style="width:100%;min-height:48px;font-size:0.95rem;">
-            Send &amp; choose how to connect →
+          <button type="button" class="btn btn-accent" id="growth-audit-submit" style="width:100%;min-height:48px;font-size:0.95rem;">
+            Request my growth audit
           </button>
           <div class="contact-options-box" id="contact-options" aria-live="polite">
             <div>
-              <div class="contact-options-title">Choose how you'd like to connect</div>
-              <div class="contact-options-sub" id="options-sub">I'll include your details in whichever channel you pick.</div>
+              <div class="contact-options-title">Choose how you want to connect</div>
+              <div class="contact-options-sub" id="options-sub">Your form details will be included where the channel supports it.</div>
             </div>
             <div class="contact-btns">
-              <a class="contact-btn contact-btn-email" id="email-btn" href="#">📧 Email me</a>
-              <a class="contact-btn contact-btn-wa" id="wa-btn" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
-              <a class="contact-btn contact-btn-call" id="call-btn" href="tel:+919673000743">📞 Call me</a>
+              <a class="contact-btn contact-btn-email" id="email-option" href="#">📧 Email</a>
+              <a class="contact-btn contact-btn-wa" id="whatsapp-option" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+              <a class="contact-btn contact-btn-call" id="call-option" href="tel:+919673000743">📞 Phone call</a>
             </div>
           </div>
-          <p class="form-note">Replies within 4 hours on weekdays. I read every message myself.</p>
+          <p class="form-note">No generic proposal. The first conversation is built around your current funnel, goals, and data gaps.</p>
         </div>
       </div>
     </div>
@@ -895,6 +743,7 @@
 
 </main>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
@@ -908,15 +757,15 @@
         SearchCubes
       </div>
       <div class="footer-links">
-        <a class="footer-link footer-link-primary" href="tel:+919673000743">
+        <a class="footer-link footer-link-primary" href="tel:+919673000743" aria-label="Call SearchCubes">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.7 2.6a2 2 0 0 1-.5 2.1L8.1 9.6a16 16 0 0 0 6.3 6.3l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.6 2.6.7a2 2 0 0 1 1.7 2Z"/></svg>
           +91 96730 00743
         </a>
-        <a class="footer-link" href="mailto:hello@searchcubes.com">
+        <a class="footer-link" href="mailto:hello@searchcubes.com" aria-label="Email SearchCubes">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="m22 7-10 6L2 7"/></svg>
           Email
         </a>
-        <a class="footer-link" href="https://wa.me/919673000743" target="_blank" rel="noopener">
+        <a class="footer-link" href="https://wa.me/919673000743" target="_blank" rel="noopener" aria-label="WhatsApp">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.8a8.5 8.5 0 0 1-12.7 7.4L3 20.5l1.3-4.6a8.5 8.5 0 1 1 16.2-4.1Z"/><path d="M8.5 8.8c.2 3.4 3.1 6.1 6.5 6.5l1.4-1.4-2.2-1-1 .9c-1.1-.5-2-1.4-2.6-2.6l.9-1-1-2.2-2 1Z"/></svg>
           WhatsApp
         </a>
@@ -924,52 +773,46 @@
     </div>
     <div class="footer-bottom">
       <span class="footer-credit">Powered by Ants Digitech</span>
-      <span class="footer-tagline">SearchCubes · Freelance Growth Marketing · India</span>
+      <span class="footer-tagline">SearchCubes · Performance Marketing</span>
     </div>
   </div>
 </footer>
 
 <script>
-  const cfg = { email:'hello@searchcubes.com', wa:'919673000743', phone:'+919673000743' };
+  var cfg = { email:'hello@searchcubes.com', wa:'919673000743', phone:'+919673000743' };
 
-  function field(name) {
-    const el = document.querySelector('[name="'+name+'"]');
+  function getField(name) {
+    var el = document.querySelector('#growth-audit-form [name="'+name+'"]');
     return el ? el.value.trim() : '';
   }
-
-  function buildSummary() {
+  function buildInquiry() {
+    var priority = getField('priority');
     return {
-      name: field('name') || 'Not provided',
-      email: field('email') || 'Not provided',
-      company: field('company') || 'Not provided',
-      goal: field('goal') || 'Not selected',
-      challenge: field('challenge') || 'Not provided',
+      name: getField('name') || 'Not provided',
+      email: getField('email') || 'Not provided',
+      company: getField('company') || 'Not provided',
+      priority: priority === 'Primary growth priority' ? 'Not selected' : priority,
+      challenge: getField('challenge') || 'Not provided'
     };
   }
-
-  function buildMessage(s) {
-    return ['New enquiry via SearchCubes','',
-      'Name: '+s.name, 'Email: '+s.email, 'Company: '+s.company,
-      'Goal: '+s.goal, 'Challenge: '+s.challenge
-    ].join('\n');
+  function hasData(i) {
+    return i.name !== 'Not provided' || i.email !== 'Not provided' || i.company !== 'Not provided' || i.priority !== 'Not selected' || i.challenge !== 'Not provided';
   }
-
-  document.getElementById('submit-btn').addEventListener('click', function() {
-    var s = buildSummary();
-    var msg = buildMessage(s);
-    var subj = encodeURIComponent('Growth enquiry from '+s.company);
+  function formatMsg(i) {
+    return ['New growth audit request','','Name: '+i.name,'Business email: '+i.email,'Company: '+i.company,'Primary priority: '+i.priority,'Growth challenge: '+i.challenge].join('\n');
+  }
+  document.getElementById('growth-audit-submit').addEventListener('click', function() {
+    var i = buildInquiry();
+    var msg = formatMsg(i);
+    var subj = encodeURIComponent('Growth audit request from '+i.company);
     var body = encodeURIComponent(msg);
-
-    document.getElementById('email-btn').href = 'mailto:'+cfg.email+'?subject='+subj+'&body='+body;
-    document.getElementById('wa-btn').href = 'https://wa.me/'+cfg.wa+'?text='+body;
-    document.getElementById('call-btn').href = 'tel:'+cfg.phone;
-
-    var hasSomething = s.name!=='Not provided' || s.company!=='Not provided' || s.goal!=='Not selected';
+    document.getElementById('email-option').href = 'mailto:'+cfg.email+'?subject='+subj+'&body='+body;
+    document.getElementById('whatsapp-option').href = 'https://wa.me/'+cfg.wa+'?text='+body;
+    document.getElementById('call-option').href = 'tel:'+cfg.phone;
     var sub = document.getElementById('options-sub');
-    sub.textContent = hasSomething
-      ? s.name+' from '+s.company+' — '+s.goal+'. Email & WhatsApp will include your full details.'
-      : 'Your details will be included where the channel supports it.';
-
+    sub.textContent = hasData(i)
+      ? i.name+' from '+i.company+': '+i.priority+'. Email and WhatsApp will include the form details.'
+      : 'Your form details will be included where the channel supports it.';
     var box = document.getElementById('contact-options');
     box.classList.add('visible');
     box.scrollIntoView({ behavior:'smooth', block:'nearest' });
