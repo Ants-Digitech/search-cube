@@ -55,51 +55,61 @@
     .btn-ghost:hover { background: var(--cream); }
 
     /* ── HERO ── */
-    .hero { background: var(--ink); padding: 0; position: relative; overflow: hidden; min-height: calc(100svh - 68px); display: flex; flex-direction: column; }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background: linear-gradient(rgba(26,18,8,0.70), rgba(26,18,8,0.85)),
-        repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 88px);
-      z-index: 0;
+    .hero {
+      background: var(--warm-white);
+      padding: 0; position: relative; overflow: hidden;
+      min-height: calc(100svh - 68px); display: flex; flex-direction: column;
     }
-    /* Hero image fills background */
-    .hero-img-bg {
-      position: absolute; inset: 0; z-index: 0;
-      background: #2a1e0f; /* fallback colour matching warm ink */
+    .hero::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(217,119,6,0.09) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 10% 80%, rgba(74,124,89,0.07) 0%, transparent 70%);
     }
-    .hero-img-bg img {
-      width: 100%; height: 100%; object-fit: cover; object-position: center;
-      display: block; opacity: 0.45;
-    }
+    .hero-img-bg { display: none; }
     .hero-inner {
       position: relative; z-index: 1;
-      max-width: 1100px; margin: 0 auto; padding: 72px 24px 80px;
-      display: grid; gap: 48px; align-items: center; flex: 1;
+      max-width: 1100px; margin: 0 auto; padding: 48px 24px 56px;
+      display: grid; gap: 48px; align-items: start; flex: 1;
     }
-    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,252,247,0.1); border: 1px solid rgba(255,252,247,0.2); border-radius: 999px; padding: 6px 14px; font-size: 0.82rem; font-weight: 600; color: rgba(255,252,247,0.85); margin-bottom: 24px; }
-    .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--amber-mid); animation: blink 2.2s ease-in-out infinite; }
+
+    /* ── HERO PHOTO FRAME (right column) ── */
+    .hero-photo-wrap { position: relative; display: flex; flex-direction: column; gap: 14px; }
+    .hero-photo-frame {
+      position: relative; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.14); border-radius: 12px;
+      background: #1e130a; box-shadow: 0 28px 80px rgba(0,0,0,0.38);
+      aspect-ratio: 4/5;
+    }
+    .hero-photo-frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .hero-photo-frame::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(26,18,8,0.80)), linear-gradient(90deg, rgba(26,18,8,0.14), transparent 48%);
+      pointer-events: none;
+    }
+    .hero-photo-caption { position: absolute; left: 18px; right: 18px; bottom: 18px; z-index: 1; display: flex; flex-direction: column; gap: 6px; }
+    .hero-photo-chip { width: fit-content; border-radius: 999px; padding: 5px 12px; background: var(--amber); color: #451a03; font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; }
+    .hero-photo-caption strong { color: var(--warm-white); font-size: 1rem; font-family: 'Fraunces', serif; font-weight: 700; line-height: 1.3; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--amber-light); border: 1px solid rgba(217,119,6,0.25); border-radius: 999px; padding: 6px 14px; font-size: 0.82rem; font-weight: 600; color: #92400e; margin-bottom: 24px; }
+    .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--amber); animation: blink 2.2s ease-in-out infinite; }
     @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
-    .hero h1 { font-family: 'Fraunces', serif; font-weight: 700; font-size: clamp(2.6rem, 6vw, 5.2rem); line-height: 1.02; letter-spacing: -0.03em; color: var(--warm-white); margin-bottom: 24px; }
-    .hero-sub { font-size: clamp(1rem,1.8vw,1.15rem); color: rgba(255,252,247,0.72); max-width: 560px; margin-bottom: 36px; line-height: 1.7; }
+    .hero h1 { font-family: 'Fraunces', serif; font-weight: 700; font-size: clamp(2.6rem, 6vw, 5.2rem); line-height: 1.02; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 24px; }
+    .hero-sub { font-size: clamp(1rem,1.8vw,1.15rem); color: var(--ink-soft); max-width: 560px; margin-bottom: 36px; line-height: 1.7; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 48px; }
     .hero-proof { display: flex; flex-wrap: wrap; gap: 24px; }
     .proof-item { display: flex; flex-direction: column; gap: 2px; }
-    .proof-num { font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 700; color: var(--amber-mid); line-height: 1; }
-    .proof-label { font-size: 0.8rem; color: rgba(255,252,247,0.55); font-weight: 500; }
-    .proof-divider { width: 1px; background: rgba(255,252,247,0.15); align-self: stretch; }
-
-    /* Hero panel */
-    .hero-panel { background: rgba(255,252,247,0.08); border: 1px solid rgba(255,252,247,0.14); border-radius: 20px; padding: 28px; backdrop-filter: blur(10px); }
-    .panel-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,252,247,0.48); margin-bottom: 20px; }
+    .proof-num { font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 700; color: var(--ink); line-height: 1; }
+    .proof-label { font-size: 0.8rem; color: var(--muted); font-weight: 500; }
+    .proof-divider { width: 1px; background: var(--line); align-self: stretch; }
+    .hero-panel { background: var(--cream); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
     .metric-row { display: flex; flex-direction: column; gap: 14px; }
     .metric-item { display: flex; flex-direction: column; gap: 6px; }
     .metric-header { display: flex; justify-content: space-between; align-items: center; }
-    .metric-name { font-size: 0.88rem; font-weight: 500; color: rgba(255,252,247,0.72); }
-    .metric-val { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 700; color: var(--amber-mid); }
-    .metric-bar-bg { height: 8px; background: rgba(255,252,247,0.12); border-radius: 999px; overflow: hidden; }
-    .metric-bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--sage), var(--amber-mid)); transform-origin: left; animation: growBar 1.2s ease-out forwards; }
+    .metric-name { font-size: 0.88rem; font-weight: 500; color: var(--ink-soft); }
+    .metric-val { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 700; color: var(--sage); }
+    .metric-bar-bg { height: 8px; background: rgba(26,18,8,0.1); border-radius: 999px; overflow: hidden; }
+    .metric-bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--sage), var(--amber)); transform-origin: left; animation: growBar 1.2s ease-out forwards; }
     @keyframes growBar { from{transform:scaleX(0);} to{transform:scaleX(1);} }
-    .panel-caption { margin-top: 20px; padding: 12px 14px; background: rgba(255,252,247,0.06); border-radius: 10px; border-left: 3px solid var(--amber); font-size: 0.85rem; color: rgba(255,252,247,0.7); line-height: 1.5; }
 
     /* ── TRUST STRIP ── */
     .trust-strip { background: rgba(26,18,8,0.96); padding: 20px 24px; border-top: 1px solid rgba(255,252,247,0.06); }
@@ -137,37 +147,14 @@
     .sol-bar-bg { height: 7px; background: rgba(255,252,247,0.12); border-radius: 999px; overflow: hidden; }
     .sol-bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--sage), var(--amber-mid)); }
 
-    /* ── IMAGE CARDS (strategy, tracking, client) ── */
+    /* ── IMAGE CARDS ── */
     .image-cards { display: grid; gap: 16px; margin-top: 40px; }
     .img-card { border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: var(--warm-white); box-shadow: var(--shadow-card); }
-    .img-card-visual {
-      position: relative; aspect-ratio: 16/11; overflow: hidden;
-      background: linear-gradient(135deg, var(--cream), #ddd4c4); /* warm placeholder */
-    }
-    .img-card-visual img {
-      display: block; width: 100%; height: 100%; object-fit: cover;
-      transition: transform 400ms ease;
-    }
+    .img-card-visual { position: relative; aspect-ratio: 16/11; overflow: hidden; background: #ddd4c4; }
+    .img-card-visual img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 400ms ease; }
     .img-card:hover .img-card-visual img { transform: scale(1.04); }
-    .img-card-visual::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(180deg, transparent 46%, rgba(26,18,8,0.72));
-    }
-    /* Styled placeholder shown when img doesn't load */
-    .img-card-visual::before {
-      content: attr(data-label);
-      position: absolute; inset: 0; z-index: 0;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 700;
-      color: var(--muted); letter-spacing: -0.01em;
-      background: linear-gradient(135deg, var(--cream) 0%, #e8ddd0 100%);
-    }
-    .img-label {
-      position: absolute; left: 14px; bottom: 14px; z-index: 2;
-      border-radius: 999px; padding: 5px 12px;
-      color: var(--warm-white); background: rgba(26,18,8,0.68);
-      font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
-    }
+    .img-card-visual::after { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, transparent 46%, rgba(26,18,8,0.72)); pointer-events: none; }
+    .img-label { position: absolute; left: 14px; bottom: 14px; z-index: 2; border-radius: 999px; padding: 5px 12px; color: var(--warm-white); background: rgba(26,18,8,0.68); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
     .img-card-body { padding: 18px; }
     .img-card-body h3 { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
     .img-card-body p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
@@ -269,7 +256,7 @@
     /* ── RESPONSIVE ── */
     @media (min-width: 640px) { .nav-links { display: flex; } }
     @media (min-width: 900px) {
-      .hero-inner { grid-template-columns: 1fr 400px; }
+      .hero-inner { grid-template-columns: minmax(0,1.1fr) minmax(320px,0.7fr); align-items: start; }
       .problem-grid { grid-template-columns: 1fr 1fr; }
       .image-cards { grid-template-columns: repeat(3,1fr); }
       .why-grid { grid-template-columns: 1fr 1fr; }
@@ -307,9 +294,9 @@
       SearchCubes
     </a>
     <ul class="nav-links">
-      <li><a href="#growth-leaks">Growth leaks</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#process">Process</a></li>
+      <li><a href="#faqs">FAQs</a></li>
     </ul>
     <a class="btn btn-primary" href="#consultation">Contact us</a>
   </nav>
@@ -317,18 +304,8 @@
 
 <main id="top">
 
-  <!-- HERO — background uses searchcubes-hero.jpg -->
+  <!-- HERO -->
   <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-img-bg">
-      <img
-        src="assets/searchcubes-hero.jpg"
-        alt=""
-        aria-hidden="true"
-        fetchpriority="high"
-      />
-    </div>
-    <div class="hero-bg" aria-hidden="true"></div>
-
     <div class="hero-inner">
       <div class="hero-content">
         <div class="hero-badge">
@@ -342,55 +319,44 @@
         </p>
         <div class="hero-actions">
           <a class="btn btn-accent" href="#consultation">Book a growth audit</a>
-          <a class="btn btn-ghost" href="#services" style="color:rgba(255,252,247,0.85);border-color:rgba(255,252,247,0.22);">Services</a>
-        </div>
-        <div class="hero-proof">
-          <div class="proof-item">
-            <span class="proof-num">+78%</span>
-            <span class="proof-label">Search demand</span>
-          </div>
-          <div class="proof-divider"></div>
-          <div class="proof-item">
-            <span class="proof-num">+64%</span>
-            <span class="proof-label">Lead quality</span>
-          </div>
-          <div class="proof-divider"></div>
-          <div class="proof-item">
-            <span class="proof-num">−43%</span>
-            <span class="proof-label">CPA control</span>
-          </div>
+          <a class="btn btn-ghost" href="#services">Services</a>
         </div>
       </div>
 
-      <div class="hero-panel" aria-label="Growth signal visualization">
-        <p class="panel-label">Growth signal snapshot</p>
-        <div class="metric-row">
-          <div class="metric-item">
-            <div class="metric-header">
-              <span class="metric-name">Search demand</span>
-              <span class="metric-val">+78%</span>
-            </div>
-            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:78%"></div></div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-header">
-              <span class="metric-name">Lead quality</span>
-              <span class="metric-val">+64%</span>
-            </div>
-            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:64%"></div></div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-header">
-              <span class="metric-name">CPA control</span>
-              <span class="metric-val" style="color:#f87171">−43%</span>
-            </div>
-            <div class="metric-bar-bg">
-              <div class="metric-bar-fill" style="width:43%;background:linear-gradient(90deg,#e57373,var(--amber-mid))"></div>
-            </div>
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-frame">
+          <img src="assets/searchcubes-hero.jpg" alt="Analytics dashboard on a laptop showing growth charts" fetchpriority="high" />
+          <div class="hero-photo-caption">
+            <span class="hero-photo-chip">Performance command center</span>
+            <strong>Every channel measured against the same growth target.</strong>
           </div>
         </div>
-        <div class="panel-caption">
-          Every channel measured against the same growth target.
+        <div class="hero-panel" aria-label="Growth signal visualization">
+          <div class="metric-row">
+            <div class="metric-item">
+              <div class="metric-header">
+                <span class="metric-name">Search demand</span>
+                <span class="metric-val">+78%</span>
+              </div>
+              <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:78%"></div></div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-header">
+                <span class="metric-name">Lead quality</span>
+                <span class="metric-val">+64%</span>
+              </div>
+              <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:64%"></div></div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-header">
+                <span class="metric-name">CPA control</span>
+                <span class="metric-val" style="color:var(--rust)">−43%</span>
+              </div>
+              <div class="metric-bar-bg">
+                <div class="metric-bar-fill" style="width:43%;background:linear-gradient(90deg,var(--rust),var(--amber))"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -444,7 +410,6 @@
             </div>
           </div>
         </div>
-
         <div class="solution-board" aria-label="SearchCubes growth system">
           <div class="board-top">
             <strong>SearchCubes Growth System</strong>
@@ -467,15 +432,10 @@
         </div>
       </div>
 
-      <!-- Three image cards — original assets/strategy-session.jpg, assets/performance-tracking.jpg, assets/client-clarity.jpg -->
       <div class="image-cards" aria-label="How SearchCubes works in practice">
         <article class="img-card">
-          <div class="img-card-visual" data-label="Strategy session">
-            <img
-              src="assets/strategy-session.jpg"
-              alt="Marketing team reviewing campaign strategy in a meeting"
-              loading="lazy"
-            />
+          <div class="img-card-visual">
+            <img src="assets/strategy-session.jpg" alt="Marketing team reviewing campaign strategy in a meeting" loading="lazy" />
             <span class="img-label">Strategy session</span>
           </div>
           <div class="img-card-body">
@@ -484,12 +444,8 @@
           </div>
         </article>
         <article class="img-card">
-          <div class="img-card-visual" data-label="Performance tracking">
-            <img
-              src="assets/performance-tracking.jpg"
-              alt="Marketing performance dashboard with charts and KPI tracking"
-              loading="lazy"
-            />
+          <div class="img-card-visual">
+            <img src="assets/performance-tracking.jpg" alt="Marketing performance dashboard with charts and KPI tracking" loading="lazy" />
             <span class="img-label">Performance tracking</span>
           </div>
           <div class="img-card-body">
@@ -498,12 +454,8 @@
           </div>
         </article>
         <article class="img-card">
-          <div class="img-card-visual" data-label="Client clarity">
-            <img
-              src="assets/client-clarity.jpg"
-              alt="Consultant discussing growth priorities with a client"
-              loading="lazy"
-            />
+          <div class="img-card-visual">
+            <img src="assets/client-clarity.jpg" alt="Consultant discussing growth priorities with a client" loading="lazy" />
             <span class="img-label">Client clarity</span>
           </div>
           <div class="img-card-body">
@@ -647,11 +599,11 @@
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="section faq">
+  <!-- FAQ — id="faqs" matches the nav href="#faqs" -->
+  <section id="faqs" class="section faq">
     <div class="container">
-      <span class="section-label">Buyer questions</span>
-      <h2 class="section-title">Handle the objections before the call.</h2>
+      <span class="section-label">Common questions</span>
+      <h2 class="section-title">Things people ask before booking.</h2>
       <div class="faq-list">
         <details open>
           <summary>How fast can a business expect to see movement? <span class="faq-arrow" aria-hidden="true">+</span></summary>
@@ -780,7 +732,6 @@
 
 <script>
   var cfg = { email:'hello@searchcubes.com', wa:'919673000743', phone:'+919673000743' };
-
   function getField(name) {
     var el = document.querySelector('#growth-audit-form [name="'+name+'"]');
     return el ? el.value.trim() : '';
